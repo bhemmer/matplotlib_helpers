@@ -153,6 +153,12 @@ def fmt_gs_axs(
             elif timescale in ["day", "d"]:
                 ax.xaxis.set_major_formatter(mdates.DateFormatter("%d.%m. %H:%M"))
                 ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+            elif re.match(r"\dd", timescale):
+                ax.xaxis.set_major_formatter(mdates.DateFormatter("%d.%m."))
+                interval = int(
+                    re.match(r"(?P<interval>\d)d", timescale).group("interval")
+                )
+                ax.xaxis.set_major_locator(mdates.HourLocator(interval=interval))
             elif timescale in ["week", "w"]:
                 ax.xaxis.set_major_formatter(mdates.DateFormatter("%d.%m."))
                 ax.xaxis.set_major_locator(mdates.DayLocator())
