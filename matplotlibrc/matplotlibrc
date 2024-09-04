@@ -1,0 +1,50 @@
+# https://matplotlib.org/stable/users/explain/customizing.html#the-matplotlibrc-file
+
+figure.figsize: 6.5, 4.875
+figure.dpi: 400
+figure.facecolor: white
+figure.edgecolor: white
+figure.titlesize: 8
+
+font.size: 7
+font.family: sans-serif
+font.sans-serif: Nimbus Sans L
+font.serif: Nimbus Roman No9 L
+font.weight: regular
+
+text.usetex: False
+mathtext.fontset: cm
+
+lines.linewidth: 1
+lines.linestyle: -
+lines.markersize: 3
+
+axes.facecolor: white
+axes.edgecolor: black
+axes.labelsize: 8
+axes.titlesize: 8
+axes.linewidth: 0.5
+axes.grid: False
+axes.grid.axis: y
+axes.grid.which: major
+
+grid.color: black
+grid.linestyle: dashed
+grid.linewidth: 0.5
+grid.alpha: 0.3
+
+xtick.direction: in
+xtick.top: True
+xtick.bottom: True
+xtick.major.width: 0.5
+xtick.minor.width: 0.3
+xtick.minor.visible: True
+xtick.labelsize: 7
+
+ytick.direction: in
+ytick.left: True
+ytick.right: True
+ytick.major.width: 0.5
+ytick.minor.width: 0.3
+ytick.minor.visible: True
+ytick.labelsize: 7
