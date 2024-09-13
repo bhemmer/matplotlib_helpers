@@ -48,3 +48,7 @@ ytick.major.width: 0.5
 ytick.minor.width: 0.3
 ytick.minor.visible: True
 ytick.labelsize: 7
+
+date.autoformatter.hour: %H:%M
+date.autoformatter.minute: %M:%S
+date.autoformatter.second: %M:%S
