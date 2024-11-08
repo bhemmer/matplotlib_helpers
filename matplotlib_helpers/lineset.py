@@ -3,7 +3,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def plot_lineset(x_list, y_list, parameter, ax=None, colormap="viridis", **kwargs):
+def plot_lineset(
+    x_list,
+    y_list,
+    parameter,
+    ax=None,
+    colormap="viridis",
+    colorbar=True,
+    colorbar_kwargs={},
+    discrete_colormap=False,
+    **kwargs,
+):
     """plot a set of parameterized lines
 
     Args:
@@ -41,6 +51,24 @@ def plot_lineset(x_list, y_list, parameter, ax=None, colormap="viridis", **kwarg
     for x, y, p in zip(x_list, y_list, parameter):
         ax.plot(x, y, color=sm.to_rgba(p), **kwargs)
 
-    colorbar = plt.colorbar(sm, ax=ax)
+    if colorbar:
+        if discrete_colormap:
+            boundaries = np.linspace(  # assumes regular spaced parameter
+                min(parameter) - abs(parameter[1] - parameter[0]) / 2,
+                max(parameter) + abs(parameter[1] - parameter[0]) / 2,
+                len(parameter) + 1,
+            )
+        else:
+            boundaries = None
+        cb = plt.colorbar(
+            sm,
+            ax=ax,
+            boundaries=boundaries,
+            **colorbar_kwargs,
+        )
+        if discrete_colormap:
+            cb.set_ticks(parameter)
+    else:
+        cb = None
 
-    return ax, colorbar
+    return ax, cb
